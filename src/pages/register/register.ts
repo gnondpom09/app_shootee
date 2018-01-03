@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { TabsPage } from '../tabs/tabs';
-import { RegisterPage } from '../register/register';
+import { LoginPage } from '../login/login';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { validateEmail } from '../../validators/email';
 import { AuthProvider } from '../../providers/auth-provider/auth-provider';
@@ -10,10 +10,10 @@ import { UserProvider } from '../../providers/user-provider/user-provider';
 import { UtilProvider } from '../../providers/utils';
 
 @Component({
-	templateUrl: 'login.html'
+	templateUrl: 'register.html'
 })
-export class LoginPage {
-	loginForm:any;
+export class RegisterPage {
+	registerForm:any;
     constructor(public nav:NavController,
       public auth: AuthProvider,
       public userProvider: UserProvider,
@@ -22,28 +22,30 @@ export class LoginPage {
     }
 
     ngOnInit() {
-        this.loginForm = new FormGroup({
+        this.registerForm = new FormGroup({
             email: new FormControl("",[Validators.required, validateEmail]),
             password: new FormControl("",Validators.required),
 						activity: new FormControl("")
         });
     }
 
-	signin() {
-      this.auth.signin(this.loginForm.value)
-      .then((data) => {
-          this.storage.set('uid', data.uid);
-          this.nav.push(TabsPage);
-      }, (error) => {
-          let alert = this.util.doAlert("Error",error.message,"Ok");
-          alert.present();
-      });
-    };
 // Create a new user
     createAccount() {
-			this.nav.push(RegisterPage);
-		//let modal = this.modalCtrl.create('Modals');
-		//modal.present();
 
+        let credentials = this.registerForm.value;
+        if (this.registerForm.activity != null) {
+          this.auth.createAccount(credentials)
+          .then((data) => {
+            // Save user datas
+             //this.storage.set('uid', data.uid);
+             this.userProvider.createUser(credentials, data.uid);
+             // Return to the login page
+             this.nav.push(LoginPage);
+          }, (error) => {
+              let alert = this.util.doAlert("Error",error.message,"Ok");
+              alert.present();
+          });
+
+        }
     };
 }

@@ -5,6 +5,7 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
 import { UsersPage } from '../pages/users/users';
 import { ChatsPage } from '../pages/chats/chats';
 import { AccountPage } from '../pages/account/account';
@@ -16,10 +17,10 @@ import { UserProvider } from '../providers/user-provider/user-provider';
 import { UtilProvider } from '../providers/utils';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyC2gX3jlrBugfnBPugX2p0U1XiSqXhrRgQ",
-  authDomain: "chat-app-1e137.firebaseapp.com",
-  databaseURL: "https://chat-app-1e137.firebaseio.com",
-  storageBucket: "chat-app-1e137.appspot.com",
+  apiKey: "AIzaSyDdOzvQzkpRB52K-f3UQZdhs8I00p3Hj8o",
+  authDomain: "login-shootee.firebaseapp.com",
+  databaseURL: "https://login-shootee.firebaseio.com",
+  storageBucket: "login-shootee.appspot.com",
 };
 
 const myFirebaseAuthConfig = {
@@ -32,6 +33,7 @@ const myFirebaseAuthConfig = {
     MyApp,
     TabsPage,
     LoginPage,
+    RegisterPage,
     UsersPage,
     ChatsPage,
     AccountPage,
@@ -46,6 +48,7 @@ const myFirebaseAuthConfig = {
     MyApp,
     TabsPage,
     LoginPage,
+    RegisterPage,
     UsersPage,
     ChatsPage,
     AccountPage,
