@@ -14,6 +14,22 @@
         <ion-item>
             <button ion-button full (click)="updatePicture()">Change Picture</button>
         </ion-item>
+        <button ion-button full (click)="openModal()">Modifier ma biographie</button>
+        <ion-list>
+          <button ion-item (click)="openModal()">
+            Telephone
+          </button>
+          <button ion-item (click)="openModal()">
+            Email
+          </button>
+          <button ion-item (click)="openModal()">
+            Compte Instatgram
+          </button>
+        </ion-list>
+
+        <button ion-button full (click)="pushComments()">Voir les avis</button>
+        <button ion-button full (click)="pushBook()">Voir les avis</button>
+
         <a ion-item primary (click)="logout()">
             Logout
         </a>

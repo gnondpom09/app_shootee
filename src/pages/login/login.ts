@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { MenuPage } from '../menu/menu';
 import { TabsPage } from '../tabs/tabs';
 import { RegisterPage } from '../register/register';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
