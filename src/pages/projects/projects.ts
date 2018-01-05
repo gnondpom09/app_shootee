@@ -9,4 +9,15 @@ import { UserProvider } from '../../providers/user-provider/user-provider';
 })
 export class ProjectsPage {
 
+  uid:string;
+  constructor(public nav: NavController, public userProvider: UserProvider) {}
+
+  ngOnInit() {
+      this.userProvider.getUid()
+      .then(uid => {
+          this.uid = uid;
+
+      });
+  };
+
 }

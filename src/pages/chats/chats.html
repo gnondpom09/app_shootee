@@ -1,11 +1,14 @@
 <ion-header>
-    <ion-navbar color="primary">
-        <ion-title>Chats</ion-title>
-        <ion-buttons end>
-            <ion-spinner color="light" *ngIf="!(chats | async)"></ion-spinner>
-        </ion-buttons>
-    </ion-navbar>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>
+      Messagerie
+    </ion-title>
+  </ion-navbar>
 </ion-header>
+
 
 <ion-content>
      <a ion-item *ngFor="let chat of chats | async" (click)="openChat(chat.$key)">

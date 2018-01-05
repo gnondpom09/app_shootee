@@ -1,7 +1,9 @@
-import { UsersPage } from '../users/users';
-import { ChatsPage } from '../chats/chats';
 import { AccountPage } from '../account/account';
-import { TabsPage } from '../tabs/tabs';
+import { ProjectsPage } from '../projects/projects';
+import { UsersPage } from '../users/users';
+import { BookPage } from '../book/book';
+import { ChatsPage } from '../chats/chats';
+
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Nav } from 'ionic-angular';
 
@@ -22,9 +24,11 @@ export class MenuPage {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: UsersPage },
-
-      { title: 'Account', component: AccountPage }
+      { title: 'Profil', component: AccountPage },
+      { title: 'Projets', component: ProjectsPage },
+      { title: 'Modeles', component: UsersPage },
+      { title: 'Book', component: BookPage },
+      { title: 'Messagerie', component: ChatsPage }
     ];
 
   }
@@ -35,6 +39,5 @@ export class MenuPage {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(pages.component);
   }
-
 
 }

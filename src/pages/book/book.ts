@@ -8,5 +8,14 @@ import { UserProvider } from '../../providers/user-provider/user-provider';
     templateUrl: 'book.html'
 })
 export class BookPage {
+  uid:string;
+  constructor(public nav: NavController, public userProvider: UserProvider) {}
 
+  ngOnInit() {
+      this.userProvider.getUid()
+      .then(uid => {
+          this.uid = uid;
+
+      });
+  };
 }
