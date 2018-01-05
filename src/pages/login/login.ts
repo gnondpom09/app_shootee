@@ -34,7 +34,7 @@ export class LoginPage {
       this.auth.signin(this.loginForm.value)
       .then((data) => {
           this.storage.set('uid', data.uid);
-          this.nav.push(TabsPage);
+          this.nav.push(MenuPage);
       }, (error) => {
           let alert = this.util.doAlert("Error",error.message,"Ok");
           alert.present();

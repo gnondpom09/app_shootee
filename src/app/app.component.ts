@@ -15,7 +15,7 @@ import { AccountPage } from '../pages/acount/account';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any;
+  rootPage: any;
 
   constructor(platform: Platform, public af: AngularFire, public authProvider:AuthProvider) {
     platform.ready().then(() => {
@@ -32,7 +32,7 @@ export class MyApp {
   intialize() {
     this.af.auth.subscribe(auth => {
        if(auth) {
-          this.rootPage = TabsPage;
+          this.rootPage = MenuPage;
         } else {
           this.rootPage = LoginPage;
         }

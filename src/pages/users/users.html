@@ -1,10 +1,12 @@
 <ion-header>
-    <ion-navbar color="primary">
-        <ion-title>Users</ion-title>
-        <ion-buttons end>
-            <ion-spinner color="light" *ngIf="!(users | async)"></ion-spinner>
-        </ion-buttons>
-    </ion-navbar>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>
+      Modeles
+    </ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content>
