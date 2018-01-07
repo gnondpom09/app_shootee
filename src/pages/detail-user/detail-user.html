@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Profil</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <ion-card>
+            <p>{{ user.pseudo }}</p>
+            <p>Experience : debutant</p>
+            <img *ngIf="!user.picture" src="assets/images/default.jpg"/>
+            <img *ngIf="user.picture" src="{{user.picture}}"/>
+        </ion-card>
+        <ion-item>
+            <button ion-button full >Inviter</button>
+        </ion-item>
+        <ion-item>
+            <p>{{ user.email }}</p>
+        </ion-item>
+        <ion-list>
+            <button ion-button full (click)="openFavorite()">Ajouter aux favoris</button>
+            <button ion-button full (click)="pushBook()">Voir mon book</button>
+            <button ion-button full (click)="pushInstagram()">Compte Instagram</button>
+        </ion-list>
+
+    </ion-list>
+</ion-content>

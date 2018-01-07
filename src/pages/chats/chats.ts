@@ -12,9 +12,9 @@ import { ChatViewPage }  from '../chat-view/chat-view';
 })
 export class ChatsPage {
     chats:Observable<any[]>;
-    constructor(public chatsProvider: ChatsProvider, 
-        public userProvider: UserProvider, 
-        public af:AngularFire, 
+    constructor(public chatsProvider: ChatsProvider,
+        public userProvider: UserProvider,
+        public af:AngularFire,
         public nav: NavController) {
             
             this.chatsProvider.getChats()
@@ -27,13 +27,13 @@ export class ChatsPage {
                 });
             });
         }
-    
-    
+
+
     openChat(key) {
         this.userProvider.getUid()
         .then(uid => {
             let param = {uid: uid, interlocutor: key};
             this.nav.push(ChatViewPage,param);
-        });   
+        });
     }
 }

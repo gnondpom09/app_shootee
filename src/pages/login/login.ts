@@ -26,7 +26,6 @@ export class LoginPage {
         this.loginForm = new FormGroup({
             email: new FormControl("",[Validators.required, validateEmail]),
             password: new FormControl("",Validators.required),
-						activity: new FormControl("")
         });
     }
 
@@ -34,7 +33,7 @@ export class LoginPage {
       this.auth.signin(this.loginForm.value)
       .then((data) => {
           this.storage.set('uid', data.uid);
-          this.nav.push(MenuPage);
+          this.nav.push(TabsPage);
       }, (error) => {
           let alert = this.util.doAlert("Error",error.message,"Ok");
           alert.present();

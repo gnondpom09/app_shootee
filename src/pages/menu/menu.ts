@@ -3,6 +3,7 @@ import { ProjectsPage } from '../projects/projects';
 import { UsersPage } from '../users/users';
 import { BookPage } from '../book/book';
 import { ChatsPage } from '../chats/chats';
+import { TabsPage } from '../tabs/tabs';
 
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Nav } from 'ionic-angular';
@@ -13,7 +14,7 @@ import { NavController, Nav } from 'ionic-angular';
 })
 export class MenuPage {
   // Basic root for our content view
-  rootPage: any = UsersPage;
+  rootPage: any = TabsPage;
 
   // Reference to the app's root nav
   @ViewChild(Nav) nav: Nav;

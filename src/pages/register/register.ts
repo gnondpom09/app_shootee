@@ -23,9 +23,10 @@ export class RegisterPage {
 
     ngOnInit() {
         this.registerForm = new FormGroup({
+			pseudo: new FormControl(""),
             email: new FormControl("",[Validators.required, validateEmail]),
             password: new FormControl("",Validators.required),
-						activity: new FormControl("")
+			activity: new FormControl("")
         });
     }
 
@@ -33,19 +34,17 @@ export class RegisterPage {
     createAccount() {
 
         let credentials = this.registerForm.value;
-        if (this.registerForm.activity != null) {
-          this.auth.createAccount(credentials)
-          .then((data) => {
-            // Save user datas
-             //this.storage.set('uid', data.uid);
-             this.userProvider.createUser(credentials, data.uid);
-             // Return to the login page
-             this.nav.push(LoginPage);
-          }, (error) => {
-              let alert = this.util.doAlert("Error",error.message,"Ok");
-              alert.present();
-          });
 
-        }
+		this.auth.createAccount(credentials)
+		.then((data) => {
+		  // Save user datas
+		   //this.storage.set('uid', data.uid);
+		   this.userProvider.createUser(credentials, data.uid);
+		   // Enter in account page
+		   this.nav.setRoot(TabsPage);
+		}, (error) => {
+			let alert = this.util.doAlert("Error",error.message,"Ok");
+			alert.present();
+		});
     };
 }

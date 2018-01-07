@@ -8,5 +8,13 @@ import { UserProvider } from '../../providers/user-provider/user-provider';
   templateUrl: 'filter.html',
 })
 export class FilterPage {
+    uid:string;
+    constructor(public nav: NavController, public userProvider: UserProvider) {}
 
+    ngOnInit() {
+        this.userProvider.getUid()
+        .then(uid => {
+            this.uid = uid;
+        });
+    };
 }

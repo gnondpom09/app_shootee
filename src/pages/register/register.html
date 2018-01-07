@@ -9,6 +9,11 @@
     <ion-list>
 
         <ion-item>
+            <ion-label floating>Pseudo</ion-label>
+            <ion-input type="text" formControlName="pseudo"></ion-input>
+        </ion-item>
+
+        <ion-item>
             <ion-label floating>Email</ion-label>
             <ion-input type="text" formControlName="email"></ion-input>
         </ion-item>
@@ -17,6 +22,7 @@
             <ion-label floating>Password</ion-label>
             <ion-input type="password" formControlName="password"></ion-input>
         </ion-item>
+
     </ion-list>
 
     <ion-list radio-group formControlName="activity">
@@ -34,7 +40,7 @@
     </ion-list>
 
     <div padding>
-      <button ion-button primary block (click)="createAccount()" [disabled]="!registerForm.valid">Register</button>
+      <button ion-button primary block (click)="createAccount()" >Register</button>
     </div>
 
    </form>

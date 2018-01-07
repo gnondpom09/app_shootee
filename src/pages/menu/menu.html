@@ -14,6 +14,16 @@
   </ion-content>
 </ion-menu>
 
+<ion-header>
+    <ion-navbar>
+      <ion-tabs color="dark">
+          <ion-tab [root]="users" tabTitle="Users" tabIcon="search"></ion-tab>
+          <ion-title>Tabs</ion-title>
+          <ion-tab [root]="profile" tabTitle="Account" tabIcon="person"></ion-tab>
+      </ion-tabs>
+    </ion-navbar>
+  </ion-header>
+
 
 <!-- main navigation -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

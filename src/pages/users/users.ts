@@ -4,6 +4,9 @@ import { FirebaseListObservable } from 'angularfire2';
 import { UserProvider } from '../../providers/user-provider/user-provider';
 import { ChatViewPage } from '../chat-view/chat-view';
 
+import { FilterPage } from '../filter/filter';
+
+
 @Component({
     templateUrl: 'users.html'
 })
@@ -19,9 +22,10 @@ export class UsersPage {
             this.users = this.userProvider.getAllUsers();
         });
     };
-    
+
     openChat(key) {
         let param = {uid: this.uid, interlocutor: key};
         this.nav.push(ChatViewPage,param);
     }
+
 }

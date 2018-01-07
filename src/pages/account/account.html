@@ -1,19 +1,14 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button>
-    <ion-title>
-      Mon compte
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar color="primary">
+        <ion-title>Profil</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content>
     <ion-list>
         <ion-card>
-          <p>Hello {{ user.email }}</p>
+          <p>Hello {{ user.pseudo }}</p>
             <img *ngIf="!user.picture" src="assets/images/default.jpg"/>
             <img *ngIf="user.picture" src="{{user.picture}}"/>
         </ion-card>
@@ -34,7 +29,7 @@
         </ion-list>
 
         <button ion-button full (click)="pushComments()">Voir les avis</button>
-        <button ion-button full (click)="pushBook()">Voir les avis</button>
+        <button ion-button full (click)="pushBook()">Voir mon book</button>
 
         <a ion-item primary (click)="logout()">
             Logout

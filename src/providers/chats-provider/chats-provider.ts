@@ -9,16 +9,17 @@ export class ChatsProvider {
   getChats() {
      return this.up.getUid().then(uid => {
         let chats = this.af.database.list(`/users/${uid}/chats`);
+
         return chats;
      });
   }
-  
+
   // Add Chat References to Both users
   addChats(uid,interlocutor) {
       // First User
       let endpoint = this.af.database.object(`/users/${uid}/chats/${interlocutor}`);
       endpoint.set(true);
-      
+
       // Second User
       let endpoint2 = this.af.database.object(`/users/${interlocutor}/chats/${uid}`);
       endpoint2.set(true);
@@ -43,8 +44,7 @@ export class ChatsProvider {
                 }
             });
       });
-      
+
       return promise;
   }
 }
-

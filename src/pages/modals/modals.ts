@@ -9,4 +9,14 @@ import { UserProvider } from '../../providers/user-provider/user-provider';
 })
 export class ModalsPage {
     // Add selected model or photograph detail
+    uid:string;
+    constructor(public nav: NavController, public userProvider: UserProvider) {}
+
+    ngOnInit() {
+        this.userProvider.getUid()
+        .then(uid => {
+            this.uid = uid;
+        });
+    };
+
 }

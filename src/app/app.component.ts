@@ -32,7 +32,7 @@ export class MyApp {
   intialize() {
     this.af.auth.subscribe(auth => {
        if(auth) {
-          this.rootPage = MenuPage;
+          this.rootPage = TabsPage;
         } else {
           this.rootPage = LoginPage;
         }
